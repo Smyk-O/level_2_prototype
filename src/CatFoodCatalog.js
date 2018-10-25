@@ -22,10 +22,9 @@ class CatFoodCatalog extends Component {
             let index = SelectedId.indexOf(id)
             SelectedId.splice(index, 1);
         }
-        this.setState = {
+        this.setState({
                 catFoodSelected: SelectedId
-            }
-        console.log(this.state.catFoodSelected.includes(id))
+            })
     }
 
     GetProduct() {
