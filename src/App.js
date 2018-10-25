@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CatFoodCatalog from './CatFoodCatalog'
+
+const items = [];
+
+items[0] = { typeName: 'с фуа-гра',text: 'Печень утки разварная с артишоками.', weight: '0,5', disabled: false, endText:'Печалька, с фуа-гра закончился.'};
+items[1] = { typeName: 'с рыбой',text: 'Головы щучьи с чесноком да свежайшая сёмгушка.', weight: '2', disabled: false, endText:'Печалька, с рыбой закончился.'};
+items[2] = { typeName: 'с курой',text: 'Филе из цыплят с трюфелями в бульоне.', weight: '5', disabled: true, endText:'Печалька, с курой закончился.'};
 
 class App extends Component {
   render() {
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+      <div className='content'>
+        <header>
+          <h1 className='header-text'>Ты сегодня покормил кота?</h1>
         </header>
+        <CatFoodCatalog items={items} />
       </div>
     );
   }

@@ -1,0 +1,154 @@
+.itemView {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.productUnit {
+    text-align: center;
+}
+
+
+.productInfo, .endProductInfo {
+    margin: 14px 0;
+    font-size: 13px;
+}
+
+.productInfo {
+    color: #fff;
+}
+
+.endProductInfo {
+    color: #ff6;
+}
+
+.product {
+    user-select: none;
+    cursor: pointer;
+    width: 320px;
+    height: 480px;
+    margin: 0 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.productText {
+    width: 211px;
+    font-family: Trebuchet MS;
+    text-align: left;
+}
+
+.slogan{
+    color: #666666;
+}
+
+.productText h2 {
+    font-weight: bold;
+    line-height: normal;
+    font-size: 48px;
+    margin: 0;
+}
+
+.productText h3 {
+    margin: 0;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 24px;
+    text-align: left;
+}
+
+.weightUnit {
+    line-height: 0px;
+    font-size: 21px;
+    margin: 0px;
+}
+
+.weightNumber {
+    line-height: 15px;
+    font-weight: normal;
+    font-size: 42px;
+    text-align: center;
+    margin: 0; 
+}
+
+.weightCircle {
+    border-radius: 50%;
+    background: #1698D9;
+    height: 80px;
+    width: 80px;
+    position: relative;
+    left: 108px;
+    bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.notSelected:hover .weightCircle {
+    background: #2EA8E6;
+}
+
+.buy {
+    cursor: pointer;
+    padding: 2px 0px;
+    width: 30px;
+    color: #1698D9;
+    border-bottom: 1px dashed #1698D9;
+}
+
+.notSelected {
+    background: url(./AppContent/border_blue.png) no-repeat,url(./AppContent/Cat.png) 0% 100% no-repeat, url(./AppContent/product-background.png) no-repeat;
+}
+.notSelected:hover {
+    background: url(./AppContent/border_blue_hover.png) no-repeat,url(./AppContent/Cat.png) 0% 100% no-repeat, url(./AppContent/product-background.png) no-repeat;
+}
+
+.Selected {
+    background: url(./AppContent/border_selected.png) no-repeat,url(./AppContent/Cat.png) 0% 100% no-repeat, url(./AppContent/product-background.png) no-repeat;
+}
+.Selected:hover {
+    background: url(./AppContent/border_selected_hover.png) no-repeat,url(./AppContent/Cat.png) 0% 100% no-repeat, url(./AppContent/product-background.png) no-repeat;
+}
+
+.Selected .weightCircle {
+    background: #D91667;
+}
+
+.Selected:hover .weightCircle {
+    background: #E52E7A;
+}
+
+.sloganHover {
+    color: #E62E7A;
+}
+
+
+.Selected:hover .slogan, .sloganHover {
+    display: none;
+}
+
+.slogan, .Selected:hover .sloganHover {
+    display: block;
+    max-height: 19px;
+    opacity: 1;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.endProduct {
+    background: url(./AppContent/border_disabled.png) no-repeat,url(./AppContent/Cat.png) 0% 100% no-repeat, url(./AppContent/product-background.png) no-repeat;
+    filter: grayscale(.75);
+    color: #B3B3B3;
+}
+
+.endProduct .weightCircle {
+    background: #B3B3B3;
+}
