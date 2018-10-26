@@ -7,6 +7,7 @@
 
 .productUnit {
     text-align: center;
+    user-select: none;
 }
 
 
@@ -25,7 +26,6 @@
 
 .product {
     border-radius: 12px;
-    user-select: none;
     cursor: pointer;
     width: 320px;
     height: 480px;
@@ -148,6 +148,7 @@
     background: url(./AppContent/border_disabled.png) no-repeat,url(./AppContent/Cat.png) 0% 100% no-repeat, url(./AppContent/product-background.png) no-repeat;
     filter: grayscale(.75);
     color: #B3B3B3;
+    cursor:default;
 }
 
 .endProduct .weightCircle {

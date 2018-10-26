@@ -9,77 +9,65 @@ class CatFoodCatalog extends Component {
         this.state = {
             catFoodSelected: []
         }
-
-
     }
 
-    ProductSelected(id, type) {
+    ProductSelected(id) {
         const SelectedId = this.state.catFoodSelected;
-        if (type === 'Selected') {
-            SelectedId.push(id)
-        }
-        else {
+        if (SelectedId.indexOf(id) !== -1) {
             let index = SelectedId.indexOf(id)
             SelectedId.splice(index, 1);
         }
+        else {
+            SelectedId.push(id)
+        }
         this.setState({
-                catFoodSelected: SelectedId
-            })
+            catFoodSelected: SelectedId
+        })
+    }
+
+    GetProductContent(item, classProduct) {
+        return (
+            <div className={`product ${classProduct}`} onClick={() => { if (!item.disabled) { this.ProductSelected(item.typeName) } }}>
+                <div className='productText'>
+                    <p className='sloganHover'>Котэ не одобряет?</p>
+                    <p className='slogan'>Сказочное заморское яство</p>
+                    <h2>Нямушка</h2>
+                    <h3>{item.typeName}</h3>
+                    <p className='productPromo'><GetPromoText weight={item.weight} /></p>
+                </div>
+                <div className='weightCircle'><p className='weightNumber'>{item.weight}</p><br /><p className='weightUnit'>кг</p></div>
+            </div>
+        )
     }
 
     GetProduct() {
-        
+
         return this.props.items.map((item) => {
             if (item.disabled) {
                 return (
                     <div key={item.typeName} className='productUnit'>
-                        <div className='product endProduct'>
-                            <div className='productText'>
-                                <p className='slogan'>Сказочное заморское яство</p>
-                                <h2>Нямушка</h2>
-                                <h3>{item.typeName}</h3>
-                                <p className='productPromo'><GetPromoText weight={item.weight} /></p>
-                            </div>
-                            <div className='weightCircle'><p className='weightNumber'>{item.weight}</p><br /><p className='weightUnit'>кг</p></div>
-                        </div>
+                        {this.GetProductContent(item, 'endProduct')}
                         <div className='endProductInfo'>
                             {item.endText}
                         </div>
                     </div>
                 );
             }
-            if (this.state.catFoodSelected.includes(item.typeName)) {
+            if (this.state.catFoodSelected.indexOf(item.typeName) !== -1) {
                 return (
                     <div key={item.typeName} className='productUnit' >
-                        <div className='product Selected' onClick={() => { this.ProductSelected(item.typeName) }}>
-                            <div className='productText'>
-                                <p className='sloganHover'>Котэ не одобряет?</p>
-                                <p className='slogan'>Сказочное заморское яство</p>
-                                <h2>Нямушка</h2>
-                                <h3>{item.typeName}</h3>
-                                <p className='productPromo'><GetPromoText weight={item.weight} /></p>
-                            </div>
-                            <div className='weightCircle'><p className='weightNumber'>{item.weight}</p><br /><p className='weightUnit'>кг</p></div>
-                        </div>
+                        {this.GetProductContent(item, 'Selected')}
                         <div className='productInfo'>
                             {item.text}
                         </div>
-                    </div>
+                    </div >
                 );
             }
             return (
-                <div key={item.typeName} className='productUnit'>
-                    <div className='product notSelected' onClick={() => { this.ProductSelected(item.typeName, 'Selected') }}>
-                        <div className='productText'>
-                            <p className='slogan'>Сказочное заморское яство</p>
-                            <h2>Нямушка</h2>
-                            <h3>{item.typeName}</h3>
-                            <p className='productPromo'><GetPromoText weight={item.weight} /></p>
-                        </div>
-                        <div className='weightCircle'><p className='weightNumber'>{item.weight}</p><br /><p className='weightUnit'>кг</p></div>
-                    </div>
+                <div key={item.typeName} className='productUnit' >
+                    {this.GetProductContent(item, 'notSelected')}
                     <div className='productInfo'>
-                        Чего сидишь? Порадуй котэ, <span className='buy' onClick={() => { this.ProductSelected(item.typeName, 'Selected') }}>купи.</span>
+                        Чего сидишь? Порадуй котэ, <span className='buy' onClick={() => { this.ProductSelected(item.typeName) }}>купи.</span>
                     </div>
                 </div>
             );
