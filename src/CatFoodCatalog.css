@@ -10,7 +10,6 @@
     user-select: none;
 }
 
-
 .productInfo, .endProductInfo {
     margin: 14px 0;
     font-size: 13px;
@@ -46,17 +45,17 @@
     color: #666666;
 }
 
-.productText h2 {
+.productText h2, .productText h3 {
     font-weight: bold;
     line-height: normal;
-    font-size: 48px;
     margin: 0;
 }
 
+.productText h2 {
+    font-size: 48px;
+}
+
 .productText h3 {
-    margin: 0;
-    font-weight: bold;
-    line-height: normal;
     font-size: 24px;
     text-align: left;
 }
@@ -71,7 +70,6 @@
     line-height: 15px;
     font-weight: normal;
     font-size: 42px;
-    text-align: center;
     margin: 0; 
 }
 
